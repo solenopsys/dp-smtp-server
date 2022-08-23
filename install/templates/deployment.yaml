@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ .Values.fullName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.selectorLabel }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.selectorLabel }}
+    spec:
+      containers:
+        - name:  {{ .Values.container.name}}
+          image:  {{ .Values.container.image}}
+          ports:
+            - containerPort: {{ .Values.ports.smtpSecure }}
+              name: smtp-secure
+            - containerPort: {{ .Values.ports.smtpAuth }}
+              name: smtp-auth
+          env:
+            - name: SSL_TYPE
+              value: 'manual'
+            - name: SSL_CERT_PATH
+              value: '/etc/ssl/tls.crt'
+            - name: SSL_KEY_PATH
+              value: '/etc/ssl/tls.key'
+            - name: SERVER_HOSTNAME
+              value: {{ .Values.mailHost}}
+            - name: SMTP_SERVER
+              value: localhost

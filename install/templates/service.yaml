@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.fullName}}
+  labels:
+    app:  {{ .Values.selectorLabel }}
+spec:
+  selector:
+    app: {{ .Values.selectorLabel }}
+  type: LoadBalancer
+  ports:
+    - name: smtp-secure
+      port: {{ .Values.ports.smtpSecure }}
+      targetPort: smtp-secure
+    - name: smtp-auth
+      port: {{ .Values.ports.smtpAuth }}
+      targetPort: smtp-auth

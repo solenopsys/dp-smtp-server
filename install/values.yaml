@@ -1,0 +1,16 @@
+replicasCount: 1
+fullName: "solenopsys-postfix"
+selectorLabel: "solenopsys-postfix"
+
+
+ports:
+    smtpSecure: 465
+    smtpAuth: 587
+
+
+mailHost: "mail.solenopsys.org"
+container:
+  name: router
+  image: registry.alexstorm.solenopsys.org/solenopsys-postfix
+  pullPolicy: Always
+
