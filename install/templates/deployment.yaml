@@ -20,6 +20,10 @@ spec:
               name: smtp-secure
             - containerPort: {{ .Values.ports.smtpAuth }}
               name: smtp-auth
+          volumeMounts:
+            - mountPath: "/etc/ssl"
+              name: prod-mail-tls
+              readOnly: true    
           env:
             - name: SSL_TYPE
               value: 'manual'
@@ -27,7 +31,11 @@ spec:
               value: '/etc/ssl/tls.crt'
             - name: SSL_KEY_PATH
               value: '/etc/ssl/tls.key'
-            - name: SERVER_HOSTNAME
-              value: {{ .Values.mailHost}}
-            - name: SMTP_SERVER
-              value: localhost
+            - name: RELAY_FROM_HOSTS
+              value: '127.0.0.0/8 10.0.0.0/8 192.0.0.0/8 172.0.0.0/8 ::1'            
+            - name: HOSTNAME
+              value: 'mail.solenopsys.org'
+      volumes:
+        - name: prod-mail-tls
+          secret:
+            secretName: prod-mail-tls

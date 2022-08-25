@@ -11,7 +11,7 @@ spec:
   ports:
     - name: smtp-secure
       port: {{ .Values.ports.smtpSecure }}
-      targetPort: smtp-secure
+      targetPort: {{ .Values.ports.smtpSecure }}
     - name: smtp-auth
       port: {{ .Values.ports.smtpAuth }}
-      targetPort: smtp-auth
+      targetPort: {{ .Values.ports.smtpSecure }}

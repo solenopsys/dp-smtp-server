@@ -1,9 +1,8 @@
 #!/bin/sh
 
 build_push(){
-  cd docker
-  docker buildx build --no-cache  -f Dockerfile --platform ${ARCHS} -t ${REGISTRY}/${NAME}:latest  --push .
-  cd ..
+  cd exim
+  docker buildx build --no-cache  --platform ${ARCHS} -t ${REGISTRY}/${NAME}:latest  --push .
 }
 
 helm_build_push(){
@@ -14,13 +13,13 @@ helm_build_push(){
 }
 
 REGISTRY=registry.alexstorm.solenopsys.org
-NAME=solenopsys-postfix
+NAME=solenopsys-mail
 ARCHS="linux/amd64,linux/arm64"
-VER=0.1.3
+VER=0.1.5
 
 
 helm_build_push
-#build_push
+build_push
 
 
 
