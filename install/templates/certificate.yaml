@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: smtp-tls-secret
   issuerRef:
-    name: zerossl-issuer
+    name: zerossl-production
     kind: ClusterIssuer
   commonName: {{ .Values.mailHost}}
   dnsNames:

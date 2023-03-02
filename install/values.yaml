@@ -10,5 +10,5 @@ ports:
 mailHost: "smtp.solenopsys.org"
 container:
   name: router
-  image: registry.solenopsys.org/smtp-server
+  image: registry.solenopsys.org/solenopsys-mail
   pullPolicy: Always
