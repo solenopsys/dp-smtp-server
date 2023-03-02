@@ -22,7 +22,7 @@ spec:
               name: smtp-auth
           volumeMounts:
             - mountPath: "/etc/ssl"
-              name: prod-mail-tls
+              name: smtp-tls-cert
               readOnly: true    
           env:
             - name: SSL_TYPE
@@ -36,6 +36,6 @@ spec:
             - name: HOSTNAME
               value: 'mail.solenopsys.org'
       volumes:
-        - name: prod-mail-tls
+        - name: smtp-tls-cert
           secret:
-            secretName: prod-mail-tls
+            secretName: smtp-tls-secret

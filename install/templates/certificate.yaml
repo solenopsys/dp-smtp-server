@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: smtp-certificate
+spec:
+  secretName: smtp-tls-secret
+  issuerRef:
+    name: zerossl-issuer
+    kind: ClusterIssuer
+  commonName: {{ .Values.mailHost}}
+  dnsNames:
+    - {{ .Values.mailHost}}

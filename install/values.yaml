@@ -1,14 +1,14 @@
 replicasCount: 1
-fullName: "solenopsys-mail"
-selectorLabel: "solenopsys-mail"
+fullName: "ms-smtp-server"
+selectorLabel: "ms-smtp-server"
 
 
 ports:
     smtpSecure: 8465
     smtpAuth: 8587
 
-mailHost: "mail.solenopsys.org"
+mailHost: "smtp.solenopsys.org"
 container:
   name: router
-  image: registry.alexstorm.solenopsys.org/solenopsys-mail
+  image: registry.solenopsys.org/smtp-server
   pullPolicy: Always
