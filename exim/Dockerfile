@@ -12,9 +12,6 @@ COPY exim.conf /etc/exim/exim.conf
 RUN chmod 664 /etc/exim/exim.conf
 
 USER exim
-EXPOSE 8025
-EXPOSE 465
-EXPOSE 587
 
 ENV LOCAL_DOMAINS=@ \
     RELAY_FROM_HOSTS=10.0.0.0/8:172.16.0.0/12:192.168.0.0/16\

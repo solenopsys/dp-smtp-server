@@ -16,10 +16,10 @@ spec:
         - name:  {{ .Values.container.name}}
           image:  {{ .Values.container.image}}
           ports:
-            - containerPort: {{ .Values.ports.smtpSecure }}
+            - containerPort: {{ .Values.ports.pod.smtpSecure }}
               name: smtp-secure
-            - containerPort: {{ .Values.ports.smtpAuth }}
-              name: smtp-auth
+            - containerPort: {{ .Values.ports.pod.smtp }}
+              name: smtp
           volumeMounts:
             - mountPath: "/etc/ssl"
               name: smtp-tls-cert
@@ -34,7 +34,7 @@ spec:
             - name: RELAY_FROM_HOSTS
               value: '127.0.0.0/8 10.0.0.0/8 192.0.0.0/8 172.0.0.0/8 ::1'            
             - name: HOSTNAME
-              value: 'mail.solenopsys.org'
+              value: {{ .Values.mailHost }}
       volumes:
         - name: smtp-tls-cert
           secret:

@@ -1,7 +1,7 @@
 apiVersion: v2
 name: solenopsys-mail
-version: 0.1.4
-description: Mail server postfix
+version: 0.1.10
+description: Mail server exim
 icon: "http://alexstorm.solenopsys.org/apps/assets/solenopsys-postfix.svg"
 appVersion: 1.0.0
 

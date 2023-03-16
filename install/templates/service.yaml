@@ -7,11 +7,7 @@ metadata:
 spec:
   selector:
     app: {{ .Values.selectorLabel }}
-  type: LoadBalancer
   ports:
-    - name: smtp-secure
-      port: {{ .Values.ports.smtpSecure }}
-      targetPort: {{ .Values.ports.smtpSecure }}
     - name: smtp-auth
-      port: {{ .Values.ports.smtpAuth }}
-      targetPort: {{ .Values.ports.smtpSecure }}
+      port: {{ .Values.ports.service.smtp }}
+      targetPort: {{ .Values.ports.pod.smtp }}

@@ -15,7 +15,7 @@ helm_build_push(){
 REGISTRY=registry.solenopsys.org
 NAME=solenopsys-mail
 ARCHS="amd64"
-VER=0.1.9
+VER=0.1.10
 
 
 helm_build_push

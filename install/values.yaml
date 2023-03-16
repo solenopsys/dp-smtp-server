@@ -4,8 +4,12 @@ selectorLabel: "ms-smtp-server"
 
 
 ports:
+  pod:
     smtpSecure: 8465
-    smtpAuth: 8587
+    smtp: 8025
+  service:
+    smtpSecure: 465
+    smtp: 25
 
 mailHost: "smtp.solenopsys.org"
 container:
