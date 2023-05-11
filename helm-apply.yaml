@@ -1,0 +1,11 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: ms-smtp-server
+  namespace: kube-system
+spec:
+  chart: ms-smtp-server
+  targetNamespace: default
+  version: 0.1.10
+  repo: https://helm.solenopsys.org
+  helmVersion: v3

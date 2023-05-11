@@ -13,7 +13,7 @@ helm_build_push(){
 }
 
 REGISTRY=registry.solenopsys.org
-NAME=solenopsys-mail
+NAME=ms-smtp-server
 ARCHS="amd64"
 VER=0.1.10
 

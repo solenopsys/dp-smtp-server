@@ -1,5 +1,5 @@
 apiVersion: v2
-name: solenopsys-mail
+name: ms-smtp-server
 version: 0.1.10
 description: Mail server exim
 icon: "http://klogsolenopsys.org/apps/assets/solenopsys-postfix.svg"
